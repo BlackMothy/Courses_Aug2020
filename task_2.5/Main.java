@@ -12,15 +12,30 @@
 •	Должны быть выведены все возможные комбинации. */
 
 public class Main {
-    public static void main(String[] args) {
-        String a = "Мама";
-        String b = "Мыла";
-        String c = "Раму";
-        System.out.println(a + b + c);
-        System.out.println(a + c + b);
-        System.out.println(b + a + c);
-        System.out.println(b + c + a);
-        System.out.println(c + b + a);
-        System.out.println(c + a + b);     
+    public static void main(String[] args) {        
+        String[] arr = {"Мама", "Мыла", "Раму"};
+        String tmp = arr[2];
+
+        for (int i = 0; i < 3; i++) {
+            
+            // Вывод строк с одинаковым 1-м элементом
+            for (int j = 0; j < 2; j++) {
+                // Вывод строки
+                for (String k : arr)
+                    System.out.print(k);
+
+                if (tmp == arr[2]) {
+                    // Меняем местами 2 и 3 элемент массива
+                    tmp = arr[2];   
+                    arr[2] = arr[1];
+                    arr[1] = tmp;
+                }
+                System.out.println("");
+            }
+            // Меняем местами 1 и 3 элемент массива
+            tmp = arr[0];
+            arr[0] = arr[2];
+            arr[2] = tmp;
+        }
     }
 }
